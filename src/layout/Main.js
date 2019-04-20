@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import Header from '../components/header'
-import styles from './home.module.scss'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import styles from './Main.module.scss'
 
-const MainLayout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
+const MainLayout = ({ children }) => {
+  const data = useStaticQuery(graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
@@ -15,22 +15,18 @@ const MainLayout = ({ children }) => (
           }
         }
       }
-    `}
-    render={data => (
-      <div className={styles.homeLayout}>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <main className={styles.contentContainer}>
-          {children}
-        </main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    )}
-  />
-)
+    `)
+
+  return (
+  <div className={styles.homeLayout}>
+    <Header siteTitle={data.site.siteMetadata.title} />
+    <main className={styles.contentContainer}>
+      {children}
+    </main>
+    <Footer />
+  </div>
+  )
+}
 
 MainLayout.propTypes = {
   children: PropTypes.node.isRequired,

@@ -1,13 +1,12 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import MainLayout from "../layout/Main"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Image from "../components/Image"
+import Seo from "../components/Seo"
 
 const IndexPage = () => (
   <MainLayout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
