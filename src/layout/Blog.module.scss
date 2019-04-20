@@ -1,0 +1,18 @@
+.blogLayout {
+  display: grid;
+  grid-template-rows: 130px calc(100vh - 205px) 75px;
+
+  main {
+    margin: 0 20px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  .blogLayout {
+    .blogContentContainer {
+      margin: 0 auto;
+      width: 960px;
+    }
+  }
+}
