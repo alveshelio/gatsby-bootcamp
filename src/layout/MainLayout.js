@@ -12,6 +12,7 @@ const MainLayout = ({ children }) => {
         site {
           siteMetadata {
             title
+            author
           }
         }
       }
@@ -23,7 +24,7 @@ const MainLayout = ({ children }) => {
     <main className={styles.contentContainer}>
       {children}
     </main>
-    <Footer />
+    <Footer author={data.site.siteMetadata.author}/>
   </div>
   )
 }

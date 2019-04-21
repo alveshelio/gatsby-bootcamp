@@ -1,17 +1,33 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from "react"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import styles from './Blog.module.scss'
+import Seo from "../components/Seo"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import styles from "./Blog.module.scss"
 
 const BlogLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query BlogTitleQuery {
+    query BlogQuery {
       site {
         siteMetadata {
           title
+          author
+        }
+      }
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              title
+              date
+              tags
+            }
+            id
+            html
+            excerpt
+          }
         }
       }
     }
@@ -19,17 +35,21 @@ const BlogLayout = ({ children }) => {
 
   return (
     <div className={styles.blogLayout}>
+      <Seo
+        title="Things I blog about!"
+        keywords={[`Front-end`, `Software`, `Developer`, `react`]}
+      />
       <Header siteTitle={data.site.siteMetadata.title} />
       <main className={styles.blogContentContainer}>
-        {children}
+        {typeof children === 'function' && children(data.allMarkdownRemark.edges)}
       </main>
-      <Footer />
+      <Footer author={data.site.siteMetadata.author} />
     </div>
   )
 }
 
 BlogLayout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.func.isRequired,
 }
 
 export default BlogLayout
