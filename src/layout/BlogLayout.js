@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Seo from "../components/Seo"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import styles from "./Blog.module.scss"
+import styles from "./BlogLayout.module.scss"
 
 const BlogLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -19,14 +19,17 @@ const BlogLayout = ({ children }) => {
       allMarkdownRemark {
         edges {
           node {
+            id
             frontmatter {
               title
               date
               tags
             }
-            id
             html
             excerpt
+            fields {
+              slug
+            }
           }
         }
       }

@@ -12,7 +12,7 @@ const Blog = () => (
             <h1>{postNode.node.frontmatter.title}</h1>
             <span>Created on: {postNode.node.frontmatter.date}</span>
             <p>{postNode.node.excerpt}</p>
-            <Link to="/blog">Read More</Link>
+            <Link to={`/blog/${postNode.node.fields.slug}`}>Read More</Link>
             <hr />
           </article>
         ))

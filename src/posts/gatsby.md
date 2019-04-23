@@ -9,3 +9,5 @@ date: '2019-04-20'
   1. Gatsby
   2. Graphql
   3. React
+  
+  ![Field](../images/field.jpg)

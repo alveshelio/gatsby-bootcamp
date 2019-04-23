@@ -4,6 +4,7 @@ date: "2019-01-20"
 tags: ["CSS", "Grid", "Flexbox"]
 ---
 
+![Field](../images/field.jpg)
 We'll be covering the differences between CSS Grid and Flexbox and when to use them.
 
 ## Topics covered
@@ -12,3 +13,4 @@ We'll be covering the differences between CSS Grid and Flexbox and when to use t
 2. Flexbox
 3. When to use CSS Grid
 4. When to use Flexbox
+

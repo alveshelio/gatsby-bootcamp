@@ -8,7 +8,7 @@ import styles from './Main.module.scss'
 
 const MainLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
-      query SiteTitleQuery {
+      query SiteMetadataQuery {
         site {
           siteMetadata {
             title
