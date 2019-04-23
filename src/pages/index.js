@@ -1,6 +1,6 @@
 import React from "react"
 
-import MainLayout from "../layout/Main"
+import MainLayout from "../layout/MainLayout"
 import Image from "../components/Image"
 import Seo from "../components/Seo"
 

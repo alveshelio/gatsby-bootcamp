@@ -8,10 +8,11 @@ import styles from './Main.module.scss'
 
 const MainLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
-      query SiteTitleQuery {
+      query SiteMetadataQuery {
         site {
           siteMetadata {
             title
+            author
           }
         }
       }
@@ -23,7 +24,7 @@ const MainLayout = ({ children }) => {
     <main className={styles.contentContainer}>
       {children}
     </main>
-    <Footer />
+    <Footer author={data.site.siteMetadata.author}/>
   </div>
   )
 }

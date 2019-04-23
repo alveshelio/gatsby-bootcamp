@@ -1,7 +1,7 @@
 import React from 'react'
 import Seo from '../components/Seo'
 
-import MainLayout from '../layout/Main'
+import MainLayout from '../layout/MainLayout'
 
 const Contact = () => (
   <MainLayout>
