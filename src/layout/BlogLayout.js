@@ -16,20 +16,17 @@ const BlogLayout = ({ children }) => {
           author
         }
       }
-      allMarkdownRemark {
+      allContentfulBlogPost (sort: {
+        fields: publishedDate,
+        order:DESC
+      }) {
         edges {
           node {
             id
-            frontmatter {
-              title
-              date
-              tags
-            }
-            html
-            excerpt
-            fields {
-              slug
-            }
+            title
+            slug
+            publishedDate(formatString: "MMM DD, YYYY")
+
           }
         }
       }
@@ -44,7 +41,7 @@ const BlogLayout = ({ children }) => {
       />
       <Header siteTitle={data.site.siteMetadata.title} />
       <main className={styles.blogContentContainer}>
-        {typeof children === 'function' && children(data.allMarkdownRemark.edges)}
+        {typeof children === 'function' && children(data.allContentfulBlogPost.edges)}
       </main>
       <Footer author={data.site.siteMetadata.author} />
     </div>
