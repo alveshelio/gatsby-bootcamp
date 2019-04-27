@@ -1,6 +1,8 @@
 import Typography from 'typography'
-import funstonTheme from 'typography-theme-funston'
+import moragaTheme from 'typography-theme-moraga'
 
-const typography = new Typography(funstonTheme)
+const typography = new Typography(moragaTheme)
+
+export const { scale, rhythm, options } = typography
 
 export default typography
